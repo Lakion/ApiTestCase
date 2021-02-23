@@ -51,10 +51,11 @@ abstract class ApiTestCase extends WebTestCase
     /** @var EntityManager|null */
     private $entityManager;
 
-    public function __construct(?string $name = null, array $data = [], $dataName = '')
+    /**
+     * @before
+     */
+    public function initMatcherFactory(): void
     {
-        parent::__construct($name, $data, $dataName);
-
         $this->matcherFactory = new MatcherFactory();
     }
 
